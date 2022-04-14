@@ -7,23 +7,23 @@
 
 import Foundation
 
-// MARK: - Words Methods
+// MARK: - Word Methods
 
-// Get all words
-func getAllWords() {
-	for word in words.sorted(by: { $1.count > $0.count }) {
-		print(word)
-	}
-}
-
-func getAllWordsAsDict() -> [String: String] {
+var wordDict: [String: String] {
 	var result = [String: String]()
 
-	for word in words {
+	for word in allWords {
 		result[word.en] = word.tl
 	}
 
 	return result
+}
+
+// Get all words
+func getAllWords() {
+	for word in allWords.sorted(by: { $1.count > $0.count }) {
+		print(word)
+	}
 }
 
 // Get all words by Syllables it contains
@@ -37,7 +37,7 @@ func getAllWordsBySyl() {
 
 // Get words a specific syllable type
 func getWords(with syl: Word.SyllableStructure) {
-	for word in words {
+	for word in allWords {
 		if word.cvSyls.contains(syl) {
 			print(word)
 		}
@@ -46,7 +46,7 @@ func getWords(with syl: Word.SyllableStructure) {
 
 // Get words that contain a substring
 func getWords(with substring: String) {
-	for word in words {
+	for word in allWords {
 		if word.tl.contains(substring) {
 			print(word)
 		}
@@ -56,7 +56,7 @@ func getWords(with substring: String) {
 // Character frequency in all words
 func charFrequency() {
 	var dict = [String: Int]()
-	for word in words {
+	for word in allWords {
 		for char in word.tl {
 			dict[String(char), default: 0] += 1
 		}
@@ -90,7 +90,7 @@ func charPairsDict() {
 		for v2 in inventory {
 			var wrds = [Word]()
 
-			for word in words {
+			for word in allWords {
 				if word.tl.contains(("\(v1)\(v2)")) {
 					wrds.append(word)
 				} else { continue }

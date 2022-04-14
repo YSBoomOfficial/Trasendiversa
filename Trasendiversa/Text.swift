@@ -8,6 +8,8 @@
 import Foundation
 
 // MARK: Full Text - Trasendiversa
+// Some text I wrote for one of my assignments
+
 let translatedText = {"""
 When I was young, my father told me that our people guided the universe to the correct path.
 He said that as time passed, we and our technology evolved.

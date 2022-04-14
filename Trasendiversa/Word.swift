@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Words
 struct Word: CustomStringConvertible, Equatable {
 	enum SyllableStructure: String, CaseIterable, CustomStringConvertible {
 		case V, CV, VC, CVC, CCV, CCVC

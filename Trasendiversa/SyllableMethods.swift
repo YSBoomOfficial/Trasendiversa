@@ -43,7 +43,7 @@ func generateRandomSyl(type: Word.SyllableStructure) -> String {
 func verifySylLength() {
 	var unevenCount = 0
 
-	for word in words {
+	for word in allWords {
 		if word.cvSylStr.count != word.allSyls.count {
 			print(word)
 			unevenCount += 1
@@ -59,7 +59,7 @@ func verifySylLength() {
 // Syllable Analysis
 func sylAnalysis() {
 	var set = Set<String>()
-	for word in words {
+	for word in allWords {
 		for syl in word.allSyls.split(separator: "."){
 			set.insert(String(syl))
 		}
@@ -69,7 +69,7 @@ func sylAnalysis() {
 
 // Complex Onset Analysis
 func ccAnalysis() {
-	for word in words {
+	for word in allWords {
 		if word.cvSylStr.contains("CC") {
 			print(word)
 		}
@@ -78,7 +78,7 @@ func ccAnalysis() {
 
 // Get all words with Diphthong
 func getDiphthongs() {
-	for word in words {
+	for word in allWords {
 		if word.cvSylStr.contains("V.V") {
 			print(word)
 		}

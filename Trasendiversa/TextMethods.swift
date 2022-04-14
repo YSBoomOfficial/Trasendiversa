@@ -40,7 +40,7 @@ func charToWritingSystem(char: Character) -> Character {
 		case "w": return "W"
 		case "t͡": return "T"
 		case "d͡": return "D"
-		default:  return char
+		default: return char
 	}
 }
 
@@ -64,7 +64,6 @@ func wordToWritingSystem(word: Word) -> String {
 
 // convert text to writing system
 func textToWritingSystem(text: String) -> (String, [String]) {
-	let wordDict = getAllWordsAsDict()
 	let sentences = text.split(separator: "\n")
 	var tlResult = ""
 	var wordsMissingFromLex = [String]()
@@ -103,7 +102,7 @@ func textToPhon(text: String) -> String {
 		let splitWords = sentence.split(separator: " ")
 
 		for word in splitWords {
-			let foundWord = words.first { $0.en == String(word) }
+			let foundWord = allWords.first { $0.en == String(word) }
 
 			let tlWord = foundWord == nil ? "_"*word.count : foundWord!.tl
 			tlSentence += tlWord + " "
@@ -127,7 +126,7 @@ func textToCvSyl(text: String) -> String {
 		let splitWords = sentence.split(separator: " ")
 
 		for word in splitWords {
-			let foundWord = words.first { $0.en == String(word) }
+			let foundWord = allWords.first { $0.en == String(word) }
 
 			let tlWord = foundWord == nil ? "_"*word.count : foundWord!.cvSylStr
 			tlSentence += tlWord + " "
@@ -151,7 +150,7 @@ func textToAllSyl(text: String) -> String {
 		let splitWords = sentence.split(separator: " ")
 
 		for word in splitWords {
-			let foundWord = words.first { $0.en == String(word) }
+			let foundWord = allWords.first { $0.en == String(word) }
 
 			let tlWord = foundWord == nil ? "_"*word.count : foundWord!.allSyls
 			tlSentence += tlWord + " "
@@ -189,3 +188,4 @@ func printGloss(tl: String, morph: String, translation: String, showSyls: Bool =
 		print()
 	}
 }
+

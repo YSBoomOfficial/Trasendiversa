@@ -179,4 +179,4 @@ let misc = [
 ]
 
 // MARK: - Array of all words
-let words = pronouns + nouns + adjuncts + verbs + prepositions + misc + whWords
+let allWords = pronouns + nouns + adjuncts + verbs + prepositions + misc + whWords
