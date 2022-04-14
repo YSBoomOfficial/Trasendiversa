@@ -7,6 +7,8 @@
 
 import Foundation
 
+infix operator *
+
 func *(lhs: String, rhs: Int) -> String {
 	var result = ""
 	for _ in 0...rhs {
