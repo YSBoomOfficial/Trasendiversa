@@ -1,0 +1,47 @@
+//
+//  SoundInventory.swift
+//  Trasendiversa
+//
+//  Created by Yash Shah on 03/04/2022.
+//
+
+import Foundation
+
+// MARK: - Vowels
+let front = ["i", "e", "a"]
+let cent = ["ə"]
+let back = ["u", "o", "ɑ"]
+
+// MARK: - Consonants
+let stops = ["p", "b", "t", "d", "k", "g"]
+let nasals = ["m", "n"]
+let fricatives = ["f", "v", "θ", "s", "z", "ʃ", "ʒ"]
+let approximants = ["ɹ", "j", "l", "w"]
+let affricates = ["t͡s", "t͡ʃ", "d͡z", "d͡ʒ"]
+
+// MARK: - Inventory
+let vowels = front + cent + back
+let cons = stops + nasals + fricatives + approximants + affricates
+let inventory = vowels + cons
+
+let obstruents = fricatives + affricates + stops
+let sonorants = vowels + approximants + nasals
+
+func getInvCount() {
+	print("""
+  --INVENTORY--
+  Consonants: \(cons.count)
+  stops - \(stops)
+  nasals - \(nasals)
+  fricatives - \(fricatives)
+  approximants - \(approximants)
+  affricates - \(affricates)
+
+  Vowels: \(vowels.count)
+  Front Vowels - \(front)
+  Cent Vowels - \(cent)
+  Back Vowels - \(back)
+
+  TOTAL: \(inventory.count)
+  """)
+}
