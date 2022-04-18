@@ -7,13 +7,19 @@
 
 import Foundation
 
-infix operator *
-
 func *(lhs: String, rhs: Int) -> String {
 	var result = ""
-	for _ in 0...rhs {
+	for _ in 1...rhs {
 		result += lhs
 	}
 
+	return result
+}
+
+func *(lhs: Int, rhs: String) -> String {
+	var result = ""
+	for _ in 1...lhs {
+		result += rhs
+	}
 	return result
 }
