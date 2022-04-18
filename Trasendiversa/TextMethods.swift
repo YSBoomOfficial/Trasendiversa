@@ -116,6 +116,30 @@ func textToPhon(text: String) -> String {
 
 }
 
+// convert text to romanization transcription
+func textToRomanization(text: String) -> String {
+	let sentences = text.split(separator: "\n")
+	var tlResult = ""
+
+	for sentence in sentences {
+		var tlSentence = ""
+		let splitWords = sentence.split(separator: " ")
+
+		for word in splitWords {
+			let foundWord = allWords.first { $0.en == String(word) }
+
+			let tlWord = foundWord == nil ? "_"*word.count : foundWord!.transcription
+			tlSentence += tlWord + " "
+		}
+
+		tlSentence = tlSentence.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " -", with: "-")
+		if tlSentence != "" { tlResult += tlSentence+"\n" }
+	}
+
+	return tlResult
+
+}
+
 // convert text to cv syllables
 func textToCvSyl(text: String) -> String {
 	let sentences = text.split(separator: "\n")
@@ -165,20 +189,29 @@ func textToAllSyl(text: String) -> String {
 }
 
 // print En and Tl text in a gloss like way
-func printGloss(tl: String, morph: String, translation: String, showSyls: Bool = false) {
+func printGloss(tl: String, morph: String, showRomanization: Bool = true, showIPA: Bool = false, translation: String, showSyls: Bool = false) {
 	let splitTL = tl.replacingOccurrences(of: "-", with: "").split(separator: "\n")
 	let splitPhono = textToPhon(text: morph).replacingOccurrences(of: " -", with: "-").split(separator: "\n")
+	let splitTranscription = textToRomanization(text: morph).replacingOccurrences(of: " -", with: "-").split(separator: "\n")
 	let splitEN = morph.replacingOccurrences(of: " -", with: "-").split(separator: "\n")
-	let trans = translation.split(separator: "\n")
+	let translation = translation.split(separator: "\n")
 
 	let cvSyls = textToCvSyl(text: morph).replacingOccurrences(of: " -", with: "-").split(separator: "\n")
 	let allSyls = textToAllSyl(text: morph).replacingOccurrences(of: " -", with: "-").split(separator: "\n")
 
-	for i in 0..<trans.count {
+	for i in 0..<translation.count {
 		print(splitTL[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Text in Writing System
-		print(splitPhono[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Text in IPA
+
+		if showRomanization {
+			print(splitTranscription[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Text in IPA
+		}
+
+		if showIPA {
+			print(splitPhono[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Text in IPA
+		}
+
 		print(splitEN[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Text with morphemes (partially)
-		print(trans[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Translation of text in english
+		print(translation[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Translation of text in english
 
 		if showSyls {
 			print(cvSyls[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Text as C and V syllables

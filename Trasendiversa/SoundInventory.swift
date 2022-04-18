@@ -45,3 +45,39 @@ func getInvCount() {
   TOTAL: \(inventory.count)
   """)
 }
+
+/* Romanization
+ Vowels
+ i = [i]
+ e = [e]
+ a = [a]
+ ê = [ə]
+ u = [u]
+ o = [o]
+ à = [ɑ]
+
+ Consonants
+ p = [p]
+ b = [b]
+ t = [t]
+ d = [d]
+ k = [k]
+ g = [g]
+ m = [m]
+ n = [n]
+ f = [f]
+ v = [v]
+ th = [θ]
+ s = [s]
+ z = [z]
+ sh = [ʃ]
+ zh = [ʒ]
+ r = [ɹ]
+ j = [j]
+ l = [l]
+ w = [w]
+ ts = [t͡s]
+ ch = [t͡ʃ]
+ dz = [d͡z]
+ dj = [d͡ʒ]
+ */
