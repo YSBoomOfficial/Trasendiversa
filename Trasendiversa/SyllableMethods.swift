@@ -83,7 +83,7 @@ func getDiphthongs() {
 			print(word)
 		}
 		for v in vowels {
-			if word.tl.contains("\(v)j") || word.tl.contains("\(v)w") {
+			if word.phon.contains("\(v)j") || word.phon.contains("\(v)w") {
 				print(word)
 			}
 		}

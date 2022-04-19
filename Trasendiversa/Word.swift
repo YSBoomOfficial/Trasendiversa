@@ -77,9 +77,9 @@ struct Word: CustomStringConvertible, Equatable {
 	var description: String {
 		let text: String
 		if tl == phon {
-			text = "\(en) : /\(tl)/ | \(cvSylStr) <-> \(allSyls)"
+			text = "'\(en)' : /\(tl)/ | \(cvSylStr) | \(transcription) | <-> \(allSyls)"
 		} else {
-			text = "\(en) : /\(tl)/ -> [\(phon)] | \(cvSylStr) <-> \(allSyls)"
+			text = "'\(en)' : /\(tl)/ -> [\(phon)] | \(transcription) | \(cvSylStr) <-> \(allSyls)"
 		}
 		return text
 	}

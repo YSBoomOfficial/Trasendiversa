@@ -13,7 +13,7 @@ var wordDict: [String: String] {
 	var result = [String: String]()
 
 	for word in allWords {
-		result[word.en] = word.tl
+		result[word.en] = word.phon
 	}
 
 	return result
@@ -47,7 +47,7 @@ func getWords(with syl: Word.SyllableStructure) {
 // Get words that contain a substring
 func getWords(with substring: String) {
 	for word in allWords {
-		if word.tl.contains(substring) {
+		if word.phon.contains(substring) {
 			print(word)
 		}
 	}
@@ -57,12 +57,12 @@ func getWords(with substring: String) {
 func charFrequency() {
 	var dict = [String: Int]()
 	for word in allWords {
-		for char in word.tl {
+		for char in word.phon {
 			dict[String(char), default: 0] += 1
 		}
 
 		for a in affricates {
-			if word.tl.contains(a) {
+			if word.phon.contains(a) {
 				dict[a, default: 0] += 1
 				dict[String(a.last!), default: 0] -= 1
 			}
@@ -91,7 +91,7 @@ func charPairsDict() {
 			var wrds = [Word]()
 
 			for word in allWords {
-				if word.tl.contains(("\(v1)\(v2)")) {
+				if word.phon.contains(("\(v1)\(v2)")) {
 					wrds.append(word)
 				} else { continue }
 			}

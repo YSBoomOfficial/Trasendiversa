@@ -8,6 +8,41 @@
 import Foundation
 
 // MARK: - Text Methods
+
+/*
+ Alphabet
+ /i/ = I
+ /e/ = E
+ /a/ = A
+ /ə/ = Ê
+ /u/ = U
+ /o/ = O
+ /ɑ/ = À
+ /p/ = P
+ /b/ = B
+ /t/ = T
+ /d/ = D
+ /k/ = K
+ /g/ = G
+ /m/ = M
+ /n/ = N
+ /f/ = F
+ /v/ = V
+ /θ/ = C
+ /s/ = S
+ /z/ = Z
+ /ʃ/ = Š
+ /ʒ/ = Ž
+ /ɹ/ = R
+ /j/ = J
+ /l/ = L
+ /w/ = W
+ /t͡s/ = TS
+ /t͡ʃ/ = TŠ
+ /d͡z/ = DZ
+ /d͡ʒ/ = DŽ
+ */
+
 // convert character to writing system
 func charToWritingSystem(char: Character) -> Character {
 	switch char {
@@ -56,7 +91,7 @@ func wordToWritingSystem(word: String) -> String {
 // convert word to writing system
 func wordToWritingSystem(word: Word) -> String {
 	var result = ""
-	for letter in word.tl {
+	for letter in word.phon {
 		result += String(charToWritingSystem(char: letter))
 	}
 	return result
@@ -104,7 +139,7 @@ func textToPhon(text: String) -> String {
 		for word in splitWords {
 			let foundWord = allWords.first { $0.en == String(word) }
 
-			let tlWord = foundWord == nil ? "_"*word.count : foundWord!.tl
+			let tlWord = foundWord == nil ? "_"*word.count : foundWord!.phon
 			tlSentence += tlWord + " "
 		}
 
