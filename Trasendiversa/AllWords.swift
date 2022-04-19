@@ -90,6 +90,8 @@ let nouns = [
 	Word(en: "proton", tl: "pulton", cvSyls: [.CVC, .CVC], allSyls: "SVA.SVN"),
 	Word(en: "electron", tl: "ton", cvSyls: [.CVC], allSyls: "SVN"),
 	Word(en: "quantum", tl: "kalton", cvSyls: [.CVC, .CVC], allSyls: "SVA.SVN"),
+	Word(en: "book", tl: "kaba", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
+	Word(en: "language", tl: "nalu", cvSyls: [.CV, .CV], allSyls: "NV.AV"),
 ]
 
 // Adjectives and Adverbs
@@ -135,7 +137,7 @@ let verbs = [
 	Word(en: "lead", tl: "foɹni", cvSyls: [.CVC, .CV], allSyls: "FVA.NV"),
 	Word(en: "save", tl: "vosat", cvSyls: [.CV, .CVC], allSyls: "FV.FVS"),
 	Word(en: "protect", tl: "vosat", cvSyls: [.CV, .CVC], allSyls: "FV.FVS"),
-
+	Word(en: "write", tl: "kab", cvSyls: [.CVC], allSyls: "SVS"),
 ]
 
 let prepositions = [

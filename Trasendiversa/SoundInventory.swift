@@ -16,8 +16,8 @@ let back = ["u", "o", "ɑ"]
 let stops = ["p", "b", "t", "d", "k", "g"]
 let nasals = ["m", "n"]
 let fricatives = ["f", "v", "θ", "s", "z", "ʃ", "ʒ"]
-let approximants = ["ɹ", "j", "l", "w"]
-let affricates = ["t͡s", "t͡ʃ", "d͡z", "d͡ʒ"]
+let approximants = ["ɹ", "j", "l", "w"] // A
+let affricates = ["t͡s", "t͡ʃ", "d͡z", "d͡ʒ"] // a
 
 // MARK: - Inventory
 let vowels = front + cent + back
