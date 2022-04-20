@@ -21,7 +21,7 @@ struct Word: CustomStringConvertible, Equatable {
 	let allSyls: String // All Syllable Structure
 
 	var transcription: String {
-		let wordArray: [String] = tl.map { String($0) }
+		let wordArray = Array(phon).map { String($0) }
 		var result = ""
 
 		for index in 0..<wordArray.count {
@@ -29,6 +29,8 @@ struct Word: CustomStringConvertible, Equatable {
 				case "ə": result += "ê"
 				case "ɑ": result += "à"
 				case "θ": result += "th"
+				case "ɹ": result += "r"
+				case "j": result += "y"
 				case "ʃ":
 					if index-1 >= 0 && wordArray[index-1] == "t͡" {
 						result += "h"

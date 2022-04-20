@@ -48,36 +48,36 @@ func getInvCount() {
 
 /* Romanization
  Vowels
- i = [i]
- e = [e]
- a = [a]
- ê = [ə]
- u = [u]
- o = [o]
- à = [ɑ]
+[i] = i
+[e] = e
+[a] = a
+[ə] = ê
+[u] = u
+[o] = o
+[ɑ] = à
 
  Consonants
- p = [p]
- b = [b]
- t = [t]
- d = [d]
- k = [k]
- g = [g]
- m = [m]
- n = [n]
- f = [f]
- v = [v]
- th = [θ]
- s = [s]
- z = [z]
- sh = [ʃ]
- zh = [ʒ]
- r = [ɹ]
- j = [j]
- l = [l]
- w = [w]
- ts = [t͡s]
- ch = [t͡ʃ]
- dz = [d͡z]
- dj = [d͡ʒ]
+ [p] = p
+ [b] = b
+ [t] = t
+ [d] = d
+ [k] = k
+ [g] = g
+ [m] = m
+ [n] = n
+ [f] = f
+ [v] = v
+ [θ] = th
+ [s] = s
+ [z] = z
+ [ʃ] = sh
+ [ʒ] = zh
+ [ɹ] = r
+ [l] = l
+ [j] = y
+ [w] = w
+ [t͡s] = ts
+ [t͡ʃ] = ch
+ [d͡z] = dz
+ [d͡ʒ] = dj
  */

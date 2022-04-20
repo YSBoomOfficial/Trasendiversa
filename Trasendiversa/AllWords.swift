@@ -142,6 +142,7 @@ let verbs = [
 
 let prepositions = [
 	Word(en: "to", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
+	Word(en: "for", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
 	Word(en: "from", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
 	Word(en: "of", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
 	Word(en: "at", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
@@ -160,21 +161,46 @@ let whWords = [
 ]
 
 let misc = [
+	// name of the language
 	Word(en: "trasendiversa", tl: "tɹɑsenveɹsa", cvSyls: [.CCV, .CVC, .CVC, .CV], allSyls: "SAV.FVN.FVA.FV"),
-	// Tense
+
+	// Tense Morpheme
 	Word(en: "PST", tl: "ta", cvSyls: [.CV], allSyls: "SV"),
 	Word(en: "FUT", tl: "vɑ", cvSyls: [.CV], allSyls: "FV"),
-	// Number
+
+	// Negation Morpheme
+	Word(en: "NEG", tl: "na", cvSyls: [.CV], allSyls: "NV"),
+
+	/* Inflectional Morphology
+	 Noun -> Noun (eg: cat + s = cats)
+	 Plural Suffix
+	 */
 	Word(en: "-PL", tl: "-ʃə", cvSyls: [.CV], allSyls: "FV"),
+
+	/* Derivational Morphology
+	 Verb -> Noun (eg: realize + ation = realization)
+	 */
+	Word(en: "-ation", tl: "-li", cvSyls: [.CV], allSyls: "FV"),
+
+	/* Infinitival phrases
+	 (eg: they tried to leave)
+	 (eg: they wanted to study syntax)
+	 */
+	Word(en: "INF-", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
+
+	/* Question particle
+	 (yes-no questions)
+	 (eg: Do you like Swift? -> Q you like Swift?) 
+	 (eg: who like Swift? -> Q who likes Swift?)
+	 */
+	Word(en: "Q", tl: "fo", cvSyls: [.VC], allSyls: "FV"),
+
 	// Conj
 	Word(en: "and", tl: "ʒad", cvSyls: [.CVC], allSyls: "FVS"),
 	Word(en: "as", tl: "peɹe", cvSyls: [.CV, .CV], allSyls: "SV.AV"),
 	Word(en: "because", tl: "t͡ʃu", cvSyls: [.CV], allSyls: "aV"),
 	Word(en: "that", tl: "t͡ʃlaj", cvSyls: [.CCVC], allSyls: "aAVA"),
-	// Infinitive
-	Word(en: "INF-", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
-	// Question particle (yes-no questions)
-	Word(en: "Q", tl: "fo", cvSyls: [.VC], allSyls: "FV"),
+
 	// Quantifiers
 	Word(en: "every", tl: "tuto", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
 	Word(en: "all", tl: "tuto", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
