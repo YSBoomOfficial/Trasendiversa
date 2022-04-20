@@ -180,7 +180,7 @@ let misc = [
 	/* Derivational Morphology
 	 Verb -> Noun (eg: realize + ation = realization)
 	 */
-	Word(en: "-ation", tl: "-li", cvSyls: [.CV], allSyls: "FV"),
+	Word(en: "-ation", tl: "-li", cvSyls: [.CV], allSyls: "AV"),
 
 	/* Infinitival phrases
 	 (eg: they tried to leave)

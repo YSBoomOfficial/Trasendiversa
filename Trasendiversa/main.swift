@@ -8,3 +8,7 @@
 import Foundation
 // Trasendiversa : /tɹɑsenveɹsa/
 
+//let (tlText, _) = textToWritingSystem(text: morphemeText)
+//printGloss(tl: tlText, morph: morphemeText, translation: translatedText)
+
+//getGrammaticalMorphemes()
