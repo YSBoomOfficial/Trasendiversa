@@ -44,6 +44,12 @@ func getWords(with syl: Word.SyllableStructure) {
 	}
 }
 
+func getGrammaticalMorphemes() {
+	for word in allWords where word.en.contains("-") || word.en == word.en.uppercased() {
+		print(word)
+	}
+}
+
 // Get words that contain a substring
 func getWords(with substring: String) {
 	for word in allWords {
