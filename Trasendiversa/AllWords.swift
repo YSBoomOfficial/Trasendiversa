@@ -35,8 +35,8 @@ let pronouns = [
 ]
 
 let nouns = [
-	Word(en: "universe", tl: "veɹsa", cvSyls:[.CVC, .CV], allSyls: "FVA.FV"),
-	Word(en: "creation", tl: "veɹ", cvSyls:[.CVC], allSyls: "FVA"),
+	Word(en: "universe", tl: "veɹsa", cvSyls: [.CVC, .CV], allSyls: "FVA.FV"),
+	Word(en: "creation", tl: "veɹ", cvSyls: [.CVC], allSyls: "FVA"),
 	Word(en: "water", tl: "wola", cvSyls: [.CV, .CV], allSyls: "AV.AV"),
 	Word(en: "fire", tl: "flam", cvSyls: [.CCVC], allSyls: "FAVN"),
 	Word(en: "blood", tl: "flo", cvSyls: [.CCV], allSyls: "FAV"),
@@ -71,14 +71,14 @@ let nouns = [
 	Word(en: "thing", tl: "θe", cvSyls: [.CV], allSyls: "FV"),
 	Word(en: "god", tl: "motev", cvSyls: [.CV, .CVC], allSyls: "NV.SVF"),
 	Word(en: "law", tl: "d͡ʒim", cvSyls: [.CVC], allSyls: "aVN"),
-	Word(en: "fun", tl: "fit", cvSyls: [.CVC], allSyls: "FVS"),
 	Word(en: "amusement", tl: "fit", cvSyls: [.CVC], allSyls: "FVS"),
 	Word(en: "father", tl: "dada", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
 	Word(en: "dad", tl: "dada", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
 	Word(en: "mother", tl: "mama", cvSyls: [.CV, .CV], allSyls: "NV.NV"),
 	Word(en: "mum", tl: "mama", cvSyls: [.CV, .CV], allSyls: "NV.NV"),
 	Word(en: "mom", tl: "mama", cvSyls: [.CV, .CV], allSyls: "NV.NV"),
-	Word(en: "hole", tl: "t͡ʃaθ", cvSyls: [.CVC], allSyls: "aVF"),
+	Word(en: "hole", tl: "t͡ʃav", cvSyls: [.CVC], allSyls: "aVF"),
+	Word(en: "cage", tl: "t͡ʃav", cvSyls: [.CVC], allSyls: "aVF"),
 	Word(en: "vault", tl: "t͡ʃav", cvSyls: [.CVC], allSyls: "aVF"),
 	Word(en: "data", tl: "tada", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
 	Word(en: "information", tl: "tada", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
@@ -110,10 +110,12 @@ let adjuncts = [
 ]
 
 let verbs = [
+	Word(en: "be", tl: "soa", cvSyls: [.CV, .V], allSyls: "FV.V"),
+	Word(en: "have", tl: "so", cvSyls: [.CV], allSyls: "FV"),
+
 	Word(en: "transcend", tl: "tɹɑsen", cvSyls: [.CCV, .CVC], allSyls: "SAV.FVN"),
 	Word(en: "go", tl: "d͡ʒa", cvSyls: [.CV], allSyls: "aV"),
 	Word(en: "come", tl: "awa", cvSyls: [.V,.CV], allSyls: "V.AV"),
-	Word(en: "be", tl: "soa", cvSyls: [.CV, .V], allSyls: "FV.V"),
 	Word(en: "fly", tl: "fləj", cvSyls: [.CCVC], allSyls: "FAVA"),
 	Word(en: "say", tl: "ʃat", cvSyls: [.CVC], allSyls: "FVS"),
 	Word(en: "ask", tl: "ʃat", cvSyls: [.CVC], allSyls: "FVS"),
@@ -138,6 +140,9 @@ let verbs = [
 	Word(en: "save", tl: "vosat", cvSyls: [.CV, .CVC], allSyls: "FV.FVS"),
 	Word(en: "protect", tl: "vosat", cvSyls: [.CV, .CVC], allSyls: "FV.FVS"),
 	Word(en: "write", tl: "kab", cvSyls: [.CVC], allSyls: "SVS"),
+	Word(en: "read", tl: "kabo", cvSyls: [.CV,. CV], allSyls: "SV.SV"),
+	Word(en: "seem", tl: "fit", cvSyls: [.CVC], allSyls: "FVS"),
+	Word(en: "drink", tl: "wo", cvSyls: [.CV], allSyls: "AV"),
 ]
 
 let prepositions = [
@@ -146,6 +151,7 @@ let prepositions = [
 	Word(en: "from", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
 	Word(en: "of", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
 	Word(en: "at", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
+	Word(en: "with", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
 	Word(en: "in", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
 	Word(en: "before", tl: "ʃwos", cvSyls: [.CCVC], allSyls: "FAVF"),
 	Word(en: "after", tl: "ʒwoz", cvSyls: [.CCVC], allSyls: "FAVF"),
@@ -160,40 +166,37 @@ let whWords = [
 	Word(en: "how", tl: "d͡zwa", cvSyls: [.CCV], allSyls: "aAV"),
 ]
 
+let numerals = [
+	Word(en: "one", tl: "ɹi", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "two", tl: "ɹe", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "three", tl: "ɹu", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "four", tl: "ɹo", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "five", tl: "ɹə", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "six", tl: "ki", cvSyls: [.CV], allSyls: "SV"),
+	Word(en: "seven", tl: "ke", cvSyls: [.CV], allSyls: "SV"),
+	Word(en: "eight", tl: "ku", cvSyls: [.CV], allSyls: "SV"),
+	Word(en: "nine", tl: "ko", cvSyls: [.CV], allSyls: "SV"),
+	Word(en: "zero", tl: "kə", cvSyls: [.CV], allSyls: "SV"),
+
+	Word(en: "1", tl: "ɹi", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "2", tl: "ɹe", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "3", tl: "ɹu", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "4", tl: "ɹo", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "5", tl: "ɹə", cvSyls: [.CV], allSyls: "AV"),
+	Word(en: "6", tl: "ki", cvSyls: [.CV], allSyls: "SV"),
+	Word(en: "7", tl: "ke", cvSyls: [.CV], allSyls: "SV"),
+	Word(en: "8", tl: "ku", cvSyls: [.CV], allSyls: "SV"),
+	Word(en: "9", tl: "ko", cvSyls: [.CV], allSyls: "SV"),
+	Word(en: "0", tl: "kə", cvSyls: [.CV], allSyls: "SV"),
+]
+
+//let front = ["i", "e", "a"]
+//let cent = ["ə"]
+//let back = ["u", "o", "ɑ"]
+
 let misc = [
 	// name of the language
 	Word(en: "trasendiversa", tl: "tɹɑsenveɹsa", cvSyls: [.CCV, .CVC, .CVC, .CV], allSyls: "SAV.FVN.FVA.FV"),
-
-	// Tense Morpheme
-	Word(en: "PST", tl: "ta", cvSyls: [.CV], allSyls: "SV"),
-	Word(en: "FUT", tl: "vɑ", cvSyls: [.CV], allSyls: "FV"),
-
-	// Negation Morpheme
-	Word(en: "NEG", tl: "na", cvSyls: [.CV], allSyls: "NV"),
-
-	/* Inflectional Morphology
-	 Noun -> Noun (eg: cat + s = cats)
-	 Plural Suffix
-	 */
-	Word(en: "-PL", tl: "-ʃə", cvSyls: [.CV], allSyls: "FV"),
-
-	/* Derivational Morphology
-	 Verb -> Noun (eg: realize + ation = realization)
-	 */
-	Word(en: "-ation", tl: "-li", cvSyls: [.CV], allSyls: "AV"),
-
-	/* Infinitival phrases
-	 (eg: they tried to leave)
-	 (eg: they wanted to study syntax)
-	 */
-	Word(en: "INF-", tl: "ɑ", cvSyls: [.V], allSyls: "V"),
-
-	/* Question particle
-	 (yes-no questions)
-	 (eg: Do you like Swift? -> Q you like Swift?) 
-	 (eg: who like Swift? -> Q who likes Swift?)
-	 */
-	Word(en: "Q", tl: "fo", cvSyls: [.VC], allSyls: "FV"),
 
 	// Conj
 	Word(en: "and", tl: "ʒad", cvSyls: [.CVC], allSyls: "FVS"),
@@ -204,7 +207,55 @@ let misc = [
 	// Quantifiers
 	Word(en: "every", tl: "tuto", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
 	Word(en: "all", tl: "tuto", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
+
+	/* Tense Morpheme
+	 (eg: I ate Pizza -> I PST eat Pizza)
+	 (eg: I will eat Pizza -> I FUT eat Pizza)
+	 */
+	Word(en: "PST", tl: "ta", cvSyls: [.CV], allSyls: "SV"),
+	Word(en: "past", tl: "tata", cvSyls: [.CV, .CV], allSyls: "SV.SV"),
+
+	Word(en: "FUT", tl: "vɑ", cvSyls: [.CV], allSyls: "FV"),
+	Word(en: "future", tl: "vɑvɑ", cvSyls: [.CV, .CV], allSyls: "FV.FV"),
+
+	Word(en: "now", tl: "nom", cvSyls: [.CVC], allSyls: "NVV"),
+	Word(en: "present", tl: "nom", cvSyls: [.CVC], allSyls: "NVV"),
+
+	/* Negation Morpheme
+	 (eg: I don't like cake -> I NEG like cake)
+	 */
+	Word(en: "NEG", tl: "na", cvSyls: [.CV], allSyls: "NV"),
+
+	/* Inflectional Morphology
+	 Noun -> Noun (eg: cat + s = cats)
+	 Plural Suffix
+	 */
+	Word(en: "-PL", tl: "-ʃə", cvSyls: [.CV], allSyls: "FV"),
+
+	/* Derivational Morphology
+	 Verb -> Noun (eg: realize + ation = realization)
+	 Noun -> Verb (eg: teach + er = teacehr)
+	 */
+	Word(en: "-DER", tl: "-li", cvSyls: [.CV], allSyls: "AV"),
+
+	/* Infinitival phrases
+	 (eg: they tried to leave)
+	 (eg: they wanted to study syntax)
+	 */
+	Word(en: "INF-", tl: "ɑ-", cvSyls: [.V], allSyls: "V"),
+
+	/* Question particle
+	 (yes-no questions)
+	 (eg: Do you like Swift? -> Q you like Swift?)
+	 (eg: who like Swift? -> Q who likes Swift?)
+	 */
+	Word(en: "Q", tl: "fo", cvSyls: [.VC], allSyls: "FV"),
+
+	/* Topicalization
+	 (eg: Those cookies, I wouldn't eat)
+	 */
+	Word(en: "TOP", tl: "ɹa", cvSyls: [.CV], allSyls: "AV"),
 ]
 
 // MARK: - Array of all words
-let allWords = pronouns + nouns + adjuncts + verbs + prepositions + misc + whWords
+let allWords = pronouns + nouns + adjuncts + verbs + prepositions + misc + whWords + numerals
