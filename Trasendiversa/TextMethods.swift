@@ -112,12 +112,12 @@ func textToWritingSystem(text: String) -> (String, [String]) {
 			let tlWord = wordDict[word] == nil ? word : wordToWritingSystem(word: wordDict[word]!)
 			tlSentence += tlWord + " "
 
-			if tlWord == word && word != "PST", word != "-PL", word != "FUT", !wordsMissingFromLex.contains(word) {
+			if tlWord == word && !wordDict.keys.contains(word) && !wordsMissingFromLex.contains(word) {
 				wordsMissingFromLex.append(word)
 			}
 		}
 
-		tlSentence = tlSentence.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " -", with: "-")
+		tlSentence = tlSentence.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " -", with: "-").replacingOccurrences(of: "- ", with: "-")
 		tlSentence += ".\n"
 		if tlSentence != "" && tlSentence != ".\n" {
 			tlResult += tlSentence
@@ -226,9 +226,9 @@ func textToAllSyl(text: String) -> String {
 // print En and Tl text in a gloss like way
 func printGloss(tl: String, morph: String, showRomanization: Bool = true, showIPA: Bool = false, translation: String, showSyls: Bool = false) {
 	let splitTL = tl.replacingOccurrences(of: "-", with: "").split(separator: "\n")
-	let splitPhono = textToPhon(text: morph).replacingOccurrences(of: " -", with: "-").split(separator: "\n")
-	let splitTranscription = textToRomanization(text: morph).replacingOccurrences(of: " -", with: "-").split(separator: "\n")
-	let splitEN = morph.replacingOccurrences(of: " -", with: "-").split(separator: "\n")
+	let splitPhono = textToPhon(text: morph).replacingOccurrences(of: " -", with: "-").replacingOccurrences(of: "- ", with: "-").split(separator: "\n")
+	let splitTranscription = textToRomanization(text: morph).replacingOccurrences(of: " -", with: "-").replacingOccurrences(of: "- ", with: "-").split(separator: "\n")
+	let splitEN = morph.replacingOccurrences(of: " -", with: "-").replacingOccurrences(of: "- ", with: "-").split(separator: "\n")
 	let translation = translation.split(separator: "\n")
 
 	let cvSyls = textToCvSyl(text: morph).replacingOccurrences(of: " -", with: "-").split(separator: "\n")
@@ -246,7 +246,7 @@ func printGloss(tl: String, morph: String, showRomanization: Bool = true, showIP
 		}
 
 		print(splitEN[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Text with morphemes (partially)
-		print(translation[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Translation of text in english
+		print("'\(translation[i].trimmingCharacters(in: .whitespacesAndNewlines))'") // Translation of text in english
 
 		if showSyls {
 			print(cvSyls[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Text as C and V syllables
@@ -257,3 +257,5 @@ func printGloss(tl: String, morph: String, showRomanization: Bool = true, showIP
 	}
 }
 
+//let (tlText, _) = textToWritingSystem(text: morphemeText)
+//printGloss(tl: tlText, morph: morphemeText, translation: translatedText)

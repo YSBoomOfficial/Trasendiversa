@@ -27,7 +27,7 @@ let inventory = vowels + cons
 let obstruents = fricatives + affricates + stops
 let sonorants = vowels + approximants + nasals
 
-func getInvCount() {
+func getInvCounts() {
 	print("""
   --INVENTORY--
   Consonants: \(cons.count)

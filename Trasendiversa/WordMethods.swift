@@ -37,10 +37,8 @@ func getAllWordsBySyl() {
 
 // Get words a specific syllable type
 func getWords(with syl: Word.SyllableStructure) {
-	for word in allWords {
-		if word.cvSyls.contains(syl) {
-			print(word)
-		}
+	for word in allWords where word.cvSyls.contains(syl) {
+		print(word)
 	}
 }
 
@@ -52,10 +50,8 @@ func getGrammaticalMorphemes() {
 
 // Get words that contain a substring
 func getWords(with substring: String) {
-	for word in allWords {
-		if word.phon.contains(substring) {
-			print(word)
-		}
+	for word in allWords where word.phon.contains(substring)  {
+		print(word)
 	}
 }
 
@@ -64,21 +60,18 @@ func charFrequency() {
 	var dict = [String: Int]()
 	for word in allWords {
 		for char in word.phon {
+			guard char != "-" else { continue }
 			dict[String(char), default: 0] += 1
 		}
 
-		for a in affricates {
-			if word.phon.contains(a) {
-				dict[a, default: 0] += 1
-				dict[String(a.last!), default: 0] -= 1
-			}
+		for a in affricates where word.phon.contains(a) {
+			dict[a, default: 0] += 1
+			dict[String(a.last!), default: 0] -= 1
 		}
 	}
 
-	for l in inventory {
-		if dict[l] == nil {
-			dict[l] = 0
-		}
+	for l in inventory where dict[l] == nil {
+		dict[l] = 0
 	}
 
 	dict["t͡"] = nil
