@@ -21,7 +21,7 @@ struct Word: CustomStringConvertible, Equatable {
 	let allSyls: String // All Syllable Structure
 
 	var transcription: String {
-		let wordArray = Array(phon).map { String($0) }
+		let wordArray = Array(phon).map(String.init)
 		var result = ""
 
 		for index in 0..<wordArray.count {

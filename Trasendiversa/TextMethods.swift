@@ -44,46 +44,43 @@ import Foundation
  */
 
 // convert character to writing system
-func charToWritingSystem(char: Character) -> Character {
-	switch char {
-		case "i": return "I"
-		case "e": return "E"
-		case "a": return "A"
-		case "ə": return "Ê"
-		case "u": return "U"
-		case "o": return "O"
-		case "ɑ": return "À"
-		case "p": return "P"
-		case "b": return "B"
-		case "t": return "T"
-		case "d": return "D"
-		case "k": return "K"
-		case "g": return "G"
-		case "m": return "M"
-		case "n": return "N"
-		case "f": return "F"
-		case "v": return "V"
-		case "θ": return "C"
-		case "s": return "S"
-		case "z": return "Z"
-		case "ʃ": return "Š"
-		case "ʒ": return "Ž"
-		case "h": return "H"
-		case "ɹ": return "R"
-		case "j": return "J"
-		case "l": return "L"
-		case "w": return "W"
-		case "t͡": return "T"
-		case "d͡": return "D"
-		default: return char
-	}
-}
+var charToWritingSystemDict: [Character: Character] = [
+	"i":"I",
+	"e":"E",
+	"a":"A",
+	"ə":"Ê",
+	"u":"U",
+	"o":"O",
+	"ɑ":"À",
+	"p":"P",
+	"b":"B",
+	"t":"T",
+	"d":"D",
+	"k":"K",
+	"g":"G",
+	"m":"M",
+	"n":"N",
+	"f":"F",
+	"v":"V",
+	"θ":"C",
+	"s":"S",
+	"z":"Z",
+	"ʃ":"Š",
+	"ʒ":"Ž",
+	"h":"H",
+	"ɹ":"R",
+	"j":"J",
+	"l":"L",
+	"w":"W",
+	"t͡":"T",
+	"d͡":"D"
+]
 
 // convert word to writing system
 func wordToWritingSystem(word: String) -> String {
 	var result = ""
 	for letter in word {
-		result += String(charToWritingSystem(char: letter))
+		result += String(charToWritingSystemDict[letter] ?? letter)
 	}
 	return result
 }
@@ -92,7 +89,7 @@ func wordToWritingSystem(word: String) -> String {
 func wordToWritingSystem(word: Word) -> String {
 	var result = ""
 	for letter in word.phon {
-		result += String(charToWritingSystem(char: letter))
+		result += String(charToWritingSystemDict[letter] ?? letter)
 	}
 	return result
 }
@@ -117,9 +114,13 @@ func textToWritingSystem(text: String) -> (String, [String]) {
 			}
 		}
 
-		tlSentence = tlSentence.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " -", with: "-").replacingOccurrences(of: "- ", with: "-")
+		tlSentence = tlSentence
+			.trimmingCharacters(in: .whitespacesAndNewlines)
+			.replacingOccurrences(of: " -", with: "-")
+			.replacingOccurrences(of: "- ", with: "-")
 		tlSentence += ".\n"
-		if tlSentence != "" && tlSentence != ".\n" {
+
+		if tlSentence != ".\n" {
 			tlResult += tlSentence
 		}
 	}
@@ -143,7 +144,10 @@ func textToPhon(text: String) -> String {
 			tlSentence += tlWord + " "
 		}
 
-		tlSentence = tlSentence.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " -", with: "-")
+		tlSentence = tlSentence
+			.trimmingCharacters(in: .whitespacesAndNewlines)
+			.replacingOccurrences(of: " -", with: "-")
+			.replacingOccurrences(of: "- ", with: "-")
 		if tlSentence != "" { tlResult += tlSentence+"\n" }
 	}
 
@@ -167,7 +171,10 @@ func textToRomanization(text: String) -> String {
 			tlSentence += tlWord + " "
 		}
 
-		tlSentence = tlSentence.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " -", with: "-")
+		tlSentence = tlSentence
+			.trimmingCharacters(in: .whitespacesAndNewlines)
+			.replacingOccurrences(of: " -", with: "-")
+			.replacingOccurrences(of: "- ", with: "-")
 		if tlSentence != "" { tlResult += tlSentence+"\n" }
 	}
 
@@ -191,7 +198,10 @@ func textToCvSyl(text: String) -> String {
 			tlSentence += tlWord + " "
 		}
 
-		tlSentence = tlSentence.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " -", with: "-")
+		tlSentence = tlSentence
+			.trimmingCharacters(in: .whitespacesAndNewlines)
+			.replacingOccurrences(of: " -", with: "-")
+			.replacingOccurrences(of: "- ", with: "-")
 		if tlSentence != "" { tlResult += tlSentence+"\n" }
 	}
 
@@ -215,7 +225,10 @@ func textToAllSyl(text: String) -> String {
 			tlSentence += tlWord + " "
 		}
 
-		tlSentence = tlSentence.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " -", with: "-")
+		tlSentence = tlSentence
+			.trimmingCharacters(in: .whitespacesAndNewlines)
+			.replacingOccurrences(of: " -", with: "-")
+			.replacingOccurrences(of: "- ", with: "-")
 		if tlSentence != "" { tlResult += tlSentence+"\n" }
 	}
 
@@ -224,17 +237,44 @@ func textToAllSyl(text: String) -> String {
 }
 
 // print En and Tl text in a gloss like way
-func printGloss(tl: String, morph: String, showRomanization: Bool = true, showIPA: Bool = false, translation: String, showSyls: Bool = false) {
-	let splitTL = tl.replacingOccurrences(of: "-", with: "").split(separator: "\n")
-	let splitPhono = textToPhon(text: morph).replacingOccurrences(of: " -", with: "-").replacingOccurrences(of: "- ", with: "-").split(separator: "\n")
-	let splitTranscription = textToRomanization(text: morph).replacingOccurrences(of: " -", with: "-").replacingOccurrences(of: "- ", with: "-").split(separator: "\n")
-	let splitEN = morph.replacingOccurrences(of: " -", with: "-").replacingOccurrences(of: "- ", with: "-").split(separator: "\n")
+func printGloss(
+	tl: String,
+	morph: String,
+	showRomanization: Bool = true,
+	showIPA: Bool = false,
+	translation: String,
+	showSyls: Bool = false
+) {
+	let splitTL = tl
+		.replacingOccurrences(of: "-", with: "")
+		.split(separator: "\n")
+
+	let splitPhono = textToPhon(text: morph)
+		.replacingOccurrences(of: " -", with: "-")
+		.replacingOccurrences(of: "- ", with: "-")
+		.split(separator: "\n")
+
+	let splitTranscription = textToRomanization(text: morph)
+		.replacingOccurrences(of: " -", with: "-")
+		.replacingOccurrences(of: "- ", with: "-")
+		.split(separator: "\n")
+
+	let splitEN = morph
+		.replacingOccurrences(of: " -", with: "-")
+		.replacingOccurrences(of: "- ", with: "-")
+		.split(separator: "\n")
+
 	let translation = translation.split(separator: "\n")
 
-	let cvSyls = textToCvSyl(text: morph).replacingOccurrences(of: " -", with: "-").split(separator: "\n")
-	let allSyls = textToAllSyl(text: morph).replacingOccurrences(of: " -", with: "-").split(separator: "\n")
+	let cvSyls = textToCvSyl(text: morph)
+		.replacingOccurrences(of: " -", with: "-")
+		.split(separator: "\n")
 
-	for i in 0..<translation.count {
+	let allSyls = textToAllSyl(text: morph)
+		.replacingOccurrences(of: " -", with: "-")
+		.split(separator: "\n")
+
+	for i in translation.indices {
 		print(splitTL[i].trimmingCharacters(in: .whitespacesAndNewlines)) // Text in Writing System
 
 		if showRomanization {

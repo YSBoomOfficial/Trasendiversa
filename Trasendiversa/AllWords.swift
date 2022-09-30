@@ -190,10 +190,6 @@ let numerals = [
 	Word(en: "0", tl: "kə", cvSyls: [.CV], allSyls: "SV"),
 ]
 
-//let front = ["i", "e", "a"]
-//let cent = ["ə"]
-//let back = ["u", "o", "ɑ"]
-
 let misc = [
 	// name of the language
 	Word(en: "trasendiversa", tl: "tɹɑsenveɹsa", cvSyls: [.CCV, .CVC, .CVC, .CV], allSyls: "SAV.FVN.FVA.FV"),
@@ -249,7 +245,7 @@ let misc = [
 	 (eg: Do you like Swift? -> Q you like Swift?)
 	 (eg: who like Swift? -> Q who likes Swift?)
 	 */
-	Word(en: "Q", tl: "fo", cvSyls: [.VC], allSyls: "FV"),
+	Word(en: "Q", tl: "fo", cvSyls: [.CV], allSyls: "FV"),
 
 	/* Topicalization
 	 (eg: Those cookies, I wouldn't eat)

@@ -11,11 +11,9 @@ import Foundation
 
 var wordDict: [String: String] {
 	var result = [String: String]()
-
 	for word in allWords {
 		result[word.en] = word.phon
 	}
-
 	return result
 }
 
@@ -50,7 +48,7 @@ func getGrammaticalMorphemes() {
 
 // Get words that contain a substring
 func getWords(with substring: String) {
-	for word in allWords where word.phon.contains(substring)  {
+	for word in allWords where word.phon.contains(substring) {
 		print(word)
 	}
 }
@@ -58,6 +56,7 @@ func getWords(with substring: String) {
 // Character frequency in all words
 func charFrequency() {
 	var dict = [String: Int]()
+
 	for word in allWords {
 		for char in word.phon {
 			guard char != "-" else { continue }
@@ -89,10 +88,8 @@ func charPairsDict() {
 		for v2 in inventory {
 			var wrds = [Word]()
 
-			for word in allWords {
-				if word.phon.contains(("\(v1)\(v2)")) {
-					wrds.append(word)
-				} else { continue }
+			for word in allWords where word.phon.contains(("\(v1)\(v2)")) {
+				wrds.append(word)
 			}
 
 			if wrds.isEmpty { continue }

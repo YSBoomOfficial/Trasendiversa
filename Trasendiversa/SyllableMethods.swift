@@ -43,17 +43,16 @@ func generateRandomSyl(type: Word.SyllableStructure) -> String {
 func verifySylLength() {
 	var unevenCount = 0
 
-	for word in allWords {
-		if word.cvSylStr.count != word.allSyls.count {
-			print(word)
-			unevenCount += 1
-		}
+	for word in allWords where word.cvSylStr.count != word.allSyls.count {
+		print(word)
+		unevenCount += 1
 	}
 
 	if unevenCount > 0 {
 		print("\(unevenCount) words have uneven cvSyls and allSyls")
-		return
-	} else { print("Even count, All good!") }
+	} else {
+		print("Even count, All good!")
+	}
 }
 
 // Syllable Analysis
@@ -69,10 +68,8 @@ func sylAnalysis() {
 
 // Complex Onset Analysis
 func ccAnalysis() {
-	for word in allWords {
-		if word.cvSylStr.contains("CC") {
-			print(word)
-		}
+	for word in allWords where word.cvSylStr.contains("CC") {
+		print(word)
 	}
 }
 
@@ -82,10 +79,9 @@ func getDiphthongs() {
 		if word.cvSylStr.contains("V.V") {
 			print(word)
 		}
-		for v in vowels {
-			if word.phon.contains("\(v)j") || word.phon.contains("\(v)w") {
-				print(word)
-			}
+
+		for v in vowels where word.phon.contains("\(v)j") || word.phon.contains("\(v)w")  {
+			print(word)
 		}
 	}
 }
